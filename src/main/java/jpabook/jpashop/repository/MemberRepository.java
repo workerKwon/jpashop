@@ -8,12 +8,13 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
     
-    @PersistenceContext // 스프링이 생성한 entityManager를 주입해주는 어노테이션
-    private EntityManager em;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
