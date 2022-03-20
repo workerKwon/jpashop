@@ -22,7 +22,8 @@ logging:
     org.hibernate.type: trace # 쿼리의 파라미터를 ? 가 아니라 실제 데이터 값으로 볼 수 있게 해준다.
 
 ---
+
 spring:
   config:
     activate:
-      on-profile: default
+      on-profile: test
