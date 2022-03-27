@@ -19,6 +19,11 @@ public class ItemRepository {
         if(item.getId() == null) {
             em.persist(item);
         } else {
+            /**
+             * 1. 준영속 엔티티의 식별자 값으로 1차 캐시에서 엔티티를 조회한다. 없으면 DB에서 가져와서 1차 캐시에 저장한다.
+             * 2. 준영속 엔티티의 값을 1차캐시에서 가져온 엔티티의 필드에 넣는다.
+             * 3. 바꿔치기 된 1차 캐시에서 가져온 엔티티를 반환한다.
+             */
             em.merge(item);
         }
     }
